@@ -18,7 +18,7 @@
     "owners": [
       "One Frame Link"
     ],
-    "summary": "Abstractions used by the Ofl.Twitch project.",
+    "summary": "Utilities for interacting with Twitch APIs.",
     "projectUrl": "https://github.com/OneFrameLink/Ofl.Twitch",
     "iconUrl": "https://raw.githubusercontent.com/OneFrameLink/Ofl._Shared/master/OneFrameLink_225x225.png",
     "licenseUrl": "https://raw.githubusercontent.com/OneFrameLink/Ofl._Shared/master/LICENSE.md",
