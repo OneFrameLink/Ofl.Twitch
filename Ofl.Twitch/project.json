@@ -9,7 +9,7 @@
     "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
     "NETStandard.Library": "1.6.0",
     "Ofl.Core": "1.5.1",
-    "Ofl.Twitch.Contracts": "1.0.3"
+    "Ofl.Twitch.Contracts": "1.0.4"
   },
   "frameworks": {
     "netstandard1.3": {}
