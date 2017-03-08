@@ -7,7 +7,7 @@ namespace Ofl.Twitch
     {
         #region Implementation of ITwitchUtilities
 
-        private static readonly Regex VideoIdRegex = new Regex(@"^\/(?<channel>.+?)\/v\/(?<videoId>[0-9]+)$",
+        private static readonly Regex VideoIdRegex = new Regex(@"^\/videos\/(?<videoId>[0-9]+)$",
             RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.IgnoreCase | RegexOptions.Singleline);
 
         private static readonly Regex HostRegex = new Regex(@"^(.*\.)?twitch.tv$",
