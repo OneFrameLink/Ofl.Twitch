@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Ofl.Core.Net.Http;
+using Ofl.Net.Http;
 
 namespace Ofl.Twitch.V5
 {
@@ -13,10 +13,7 @@ namespace Ofl.Twitch.V5
         internal TwitchHttpClientHandler(IClientIdProvider clientIdProvider)
         {
             // Validate parameters.
-            if (clientIdProvider == null) throw new ArgumentNullException(nameof(clientIdProvider));
-
-            // Assign values.
-            _clientIdProvider = clientIdProvider;
+            _clientIdProvider = clientIdProvider ?? throw new ArgumentNullException(nameof(clientIdProvider));
 
             // Set decompression.
             this.SetCompression();

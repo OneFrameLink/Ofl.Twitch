@@ -2,7 +2,9 @@
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Ofl.Core.Net.Http;
+using Ofl.Net.Http;
+using Ofl.Net.Http.ApiClient.Json;
+using Ofl.Threading.Tasks;
 
 namespace Ofl.Twitch.V5
 {
@@ -15,10 +17,7 @@ namespace Ofl.Twitch.V5
             IHttpClientFactory httpClientFactory) : base(httpClientFactory)
         {
             // Validate parameters.
-            if (clientIdProvider == null) throw new ArgumentNullException(nameof(clientIdProvider));
-
-            // Assign values.
-            _clientIdProvider = clientIdProvider;
+            _clientIdProvider = clientIdProvider ?? throw new ArgumentNullException(nameof(clientIdProvider));
         }
 
         #endregion
@@ -37,7 +36,7 @@ namespace Ofl.Twitch.V5
             return CreateHttpClientAsync(new TwitchHttpClientHandler(_clientIdProvider), cancellationToken);
         }
 
-        protected override Task<string> FormatUrlAsync(string url, CancellationToken cancellationToken)
+        protected override ValueTask<string> FormatUrlAsync(string url, CancellationToken cancellationToken)
         {
             // Validate parameters.
             if (string.IsNullOrEmpty(url)) throw new ArgumentNullException(nameof(url));
@@ -46,7 +45,7 @@ namespace Ofl.Twitch.V5
             const string baseUri = "https://api.twitch.tv";
 
             // Return the path.
-            return Task.FromResult(baseUri + url);
+            return ValueTaskExtensions.FromResult(baseUri + url);
         }
 
         #endregion
