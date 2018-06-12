@@ -9,20 +9,21 @@ namespace Ofl.Twitch.V5
     {
         #region Constructor
 
-        public ConfigurationClientIdProvider(IOptions<ClientIdConfiguration> clientIdConfiguration)
+        public ConfigurationClientIdProvider(IOptions<ClientIdConfiguration> clientIdConfigurationOptionsOptions)
         {
             // Validate parameters.
-            if (string.IsNullOrWhiteSpace(clientIdConfiguration?.Value?.ClientId)) throw new ArgumentNullException(nameof(clientIdConfiguration));
+            _clientIdConfigurationOptions = clientIdConfigurationOptionsOptions ??
+                throw new ArgumentNullException(nameof(clientIdConfigurationOptionsOptions));
 
             // Assign values.
-            _clientIdConfiguration = clientIdConfiguration.Value;
+            _clientIdConfigurationOptions = clientIdConfigurationOptionsOptions;
         }
 
         #endregion
 
         #region Instance, read-only state.
 
-        private readonly ClientIdConfiguration _clientIdConfiguration;
+        private readonly IOptions<ClientIdConfiguration> _clientIdConfigurationOptions;
 
         #endregion
 
@@ -31,7 +32,7 @@ namespace Ofl.Twitch.V5
         public Task<string> GetClientIdAsync(CancellationToken cancellationToken)
         {
             // Return the configuration.
-            return Task.FromResult(_clientIdConfiguration.ClientId);
+            return Task.FromResult(_clientIdConfigurationOptions.Value.ClientId);
         }
 
         #endregion

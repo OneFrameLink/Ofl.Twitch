@@ -10,6 +10,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7B465A0D-4
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ofl.Twitch.Tests", "test\Ofl.Twitch.Tests\Ofl.Twitch.Tests.csproj", "{D5145E00-30B3-4AEC-BDFE-6B2746F28161}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-level items", "solution-level items", "{7B5D6946-0993-43C5-867D-EB0E8A139E11}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		.gitmodules = .gitmodules
+		appveyor.yml = appveyor.yml
+		directory.build.props = directory.build.props
+		LICENSE = LICENSE
+		Ofl.Twitch.sln.DotSettings = Ofl.Twitch.sln.DotSettings
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,5 +63,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{19AD2BAA-17E1-47B8-A852-CCCC75BC0094} = {2C042C8B-15FC-49D8-A936-AC8053CFF7F8}
 		{D5145E00-30B3-4AEC-BDFE-6B2746F28161} = {7B465A0D-4A88-4C23-8497-863BEBDD5420}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F5EF7D3-0F91-4018-BEAE-837913024D6F}
 	EndGlobalSection
 EndGlobal
