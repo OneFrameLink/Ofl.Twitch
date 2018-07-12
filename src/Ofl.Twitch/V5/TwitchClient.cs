@@ -2,7 +2,6 @@
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Ofl.Net.Http;
 using Ofl.Net.Http.ApiClient.Json;
 using Ofl.Threading.Tasks;
 
@@ -13,28 +12,12 @@ namespace Ofl.Twitch.V5
         #region Constructor
 
         public TwitchClient(
-            IClientIdProvider clientIdProvider,
-            IHttpClientFactory httpClientFactory) : base(httpClientFactory)
-        {
-            // Validate parameters.
-            _clientIdProvider = clientIdProvider ?? throw new ArgumentNullException(nameof(clientIdProvider));
-        }
-
-        #endregion
-
-        #region Instance, read-only state.
-
-        private readonly IClientIdProvider _clientIdProvider;
+            HttpClient httpClient) : base(httpClient)
+        { }
 
         #endregion
 
         #region Overrides
-
-        protected override Task<HttpClient> CreateHttpClientAsync(CancellationToken cancellationToken)
-        {
-            // Call the overload, returning the handler.
-            return CreateHttpClientAsync(new TwitchHttpClientHandler(_clientIdProvider), cancellationToken);
-        }
 
         protected override ValueTask<string> FormatUrlAsync(string url, CancellationToken cancellationToken)
         {

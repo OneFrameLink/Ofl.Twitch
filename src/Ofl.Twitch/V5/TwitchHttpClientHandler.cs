@@ -6,11 +6,11 @@ using Ofl.Net.Http;
 
 namespace Ofl.Twitch.V5
 {
-    internal class TwitchHttpClientHandler : HttpClientHandler
+    public class TwitchHttpClientHandler : HttpClientHandler
     {
         #region Constructor
 
-        internal TwitchHttpClientHandler(IClientIdProvider clientIdProvider)
+        public TwitchHttpClientHandler(IClientIdProvider clientIdProvider)
         {
             // Validate parameters.
             _clientIdProvider = clientIdProvider ?? throw new ArgumentNullException(nameof(clientIdProvider));
@@ -41,6 +41,7 @@ namespace Ofl.Twitch.V5
             if (!request.Headers.Contains(clientIdHeaderKey))
                 // Add.
                 request.Headers.Add(clientIdHeaderKey,
+                    // TODO: Remove task based return.
                     await _clientIdProvider.GetClientIdAsync(cancellationToken).ConfigureAwait(false));
 
             // Accept Twitch.
