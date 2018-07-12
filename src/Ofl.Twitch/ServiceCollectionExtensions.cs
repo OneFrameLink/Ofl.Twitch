@@ -20,6 +20,9 @@ namespace Ofl.Twitch
             sc = sc.Configure<ClientIdConfiguration>(clientIdConfiguration.Bind);
             sc = sc.AddTransient<IClientIdProvider, ConfigurationClientIdProvider>();
 
+			// Add the client handler.
+			sc = sc.AddTransient<TwitchHttpClientHandler>();
+			
             // Twitch utilities.
             sc = sc.AddTransient<ITwitchUtilities, TwitchUtilities>();
 
