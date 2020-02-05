@@ -23,9 +23,6 @@ namespace Ofl.Twitch
 			// Add the client handler.
 			sc = sc.AddTransient<TwitchHttpClientHandler>();
 			
-            // Twitch utilities.
-            sc = sc.AddTransient<ITwitchUtilities, TwitchUtilities>();
-
             // Add the twitch client.
             sc.AddHttpClient<ITwitchClient, TwitchClient>()
                 .ConfigurePrimaryHttpMessageHandler<TwitchHttpClientHandler>();

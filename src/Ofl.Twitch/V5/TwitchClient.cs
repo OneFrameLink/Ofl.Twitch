@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Ofl.Net.Http.ApiClient.Json;
@@ -18,6 +19,11 @@ namespace Ofl.Twitch.V5
         #endregion
 
         #region Overrides
+
+        protected override JsonSerializerOptions CreateJsonSerializerOptions() =>
+            new JsonSerializerOptions {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
 
         protected override ValueTask<string> FormatUrlAsync(string url, CancellationToken cancellationToken)
         {

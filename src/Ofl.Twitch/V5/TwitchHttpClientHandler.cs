@@ -29,7 +29,10 @@ namespace Ofl.Twitch.V5
 
         #region Overrides of HttpClientHandler
 
-        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        protected override async Task<HttpResponseMessage> SendAsync(
+            HttpRequestMessage request, 
+            CancellationToken cancellationToken
+        )
         {
             // Validate parameters.
             if (request == null) throw new ArgumentNullException(nameof(request));
@@ -40,9 +43,10 @@ namespace Ofl.Twitch.V5
             // If the client ID is not set.
             if (!request.Headers.Contains(clientIdHeaderKey))
                 // Add.
-                request.Headers.Add(clientIdHeaderKey,
-                    // TODO: Remove task based return.
-                    await _clientIdProvider.GetClientIdAsync(cancellationToken).ConfigureAwait(false));
+                request.Headers.Add(
+                    clientIdHeaderKey,
+                    _clientIdProvider.ClientId
+                );
 
             // Accept Twitch.
             const string acceptHeader = "application/vnd.twitchtv.v5+json";

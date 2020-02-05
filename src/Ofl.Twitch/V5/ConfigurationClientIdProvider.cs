@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 
 namespace Ofl.Twitch.V5
@@ -29,10 +27,20 @@ namespace Ofl.Twitch.V5
 
         #region Implementation of IClientIdProvider
 
-        public Task<string> GetClientIdAsync(CancellationToken cancellationToken)
+        public string ClientId
         {
-            // Return the configuration.
-            return Task.FromResult(_clientIdConfigurationOptions.Value.ClientId);
+            get
+            {
+                // If the client is null, throw.
+                string? clientId = _clientIdConfigurationOptions.Value.ClientId;
+
+                // Validate.
+                if (string.IsNullOrWhiteSpace(clientId))
+                    throw new InvalidOperationException($"The {nameof(_clientIdConfigurationOptions.Value.ClientId)} configuration value was empty.");
+
+                // Return the client ID.
+                return clientId;
+            }
         }
 
         #endregion
