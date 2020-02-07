@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Ofl.Net.Http;
 
-namespace Ofl.Twitch.V5
+namespace Ofl.Twitch
 {
     public class TwitchHttpClientHandler : HttpClientHandler
     {
@@ -47,12 +47,6 @@ namespace Ofl.Twitch.V5
                     clientIdHeaderKey,
                     _clientIdProvider.ClientId
                 );
-
-            // Accept Twitch.
-            const string acceptHeader = "application/vnd.twitchtv.v5+json";
-
-            // Set the accept header.
-            request.Headers.Accept.ParseAdd(acceptHeader);
 
             // Call the base.
             return await base.SendAsync(request, cancellationToken).ConfigureAwait(false);

@@ -1,4 +1,4 @@
-﻿namespace Ofl.Twitch.V5
+﻿namespace Ofl.Twitch
 {
     public class ClientIdConfiguration
     {

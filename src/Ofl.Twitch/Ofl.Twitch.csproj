@@ -16,7 +16,7 @@
     <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.1" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.1" />
     <PackageReference Include="Ofl.Net.Http.ApiClient.Json" Version="3.0.9" />
-    <PackageReference Include="Ofl.Twitch.Abstractions" Version="3.0.6" />
+    <PackageReference Include="Ofl.Twitch.Abstractions" Version="3.0.10" />
   </ItemGroup>
 
 </Project>

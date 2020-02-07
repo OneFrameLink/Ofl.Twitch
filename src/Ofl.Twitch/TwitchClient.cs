@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 using Ofl.Net.Http.ApiClient.Json;
 using Ofl.Threading.Tasks;
 
-namespace Ofl.Twitch.V5
+namespace Ofl.Twitch
 {
     public class TwitchClient : JsonApiClient, ITwitchClient
     {
@@ -41,16 +43,33 @@ namespace Ofl.Twitch.V5
 
         #region Implementation of ITwitchClient
 
-        public Task<Video> GetVideo(string id, CancellationToken cancellationToken)
+        public Task<ResponseWrapper<PagedResponse<ReadOnlyCollection<Video>>>> GetVideosByIdAsync(
+            IEnumerable<string> ids, 
+            CancellationToken cancellationToken
+        )
         {
             // Validate parameters.
-            if (string.IsNullOrWhiteSpace(id)) throw new ArgumentNullException(nameof(id));
+            if (ids == null) throw new ArgumentNullException(nameof(ids));
 
             // The url.
-            string url = $"/kraken/videos/{id}";
+            string url = $"/helix/videos";
+
+            // Add the parameters.
+            
+            // Make the call
 
             // Get the stuff.
             return GetAsync<Video>(url, cancellationToken);
+        }
+
+        protected override Task<TResponse> ProcessResponseAsync<TResponse>(
+            HttpResponseMessage httpResponseMessage, 
+            JsonSerializerOptions jsonSerializerOptions, 
+            CancellationToken 
+            cancellationToken
+        )
+        {
+            return base.ProcessResponseAsync<TResponse>(httpResponseMessage, jsonSerializerOptions, cancellationToken);
         }
 
         #endregion
