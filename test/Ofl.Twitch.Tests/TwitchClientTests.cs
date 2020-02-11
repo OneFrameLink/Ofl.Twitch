@@ -1,10 +1,11 @@
-﻿using Ofl.Twitch.V5;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Ofl.Twitch.Tests.V5
+namespace Ofl.Twitch.Tests
 {
     public class TwitchClientTests : IClassFixture<TwitchClientTestsFixture>
     {
@@ -33,23 +34,27 @@ namespace Ofl.Twitch.Tests.V5
         #region Tests
 
         [Theory]
-        [InlineData("106400740")]
-        public async Task Test_GetVideo_Async(string videoId)
+        [InlineData("547460150")]
+        [InlineData("547460150,546100800")]
+        public async Task Test_GetVideosById_Async(string videoIdsString)
         {
             // Validate parameters.
-            if (string.IsNullOrWhiteSpace(videoId))
-                throw new ArgumentNullException(nameof(videoId));
+            if (string.IsNullOrWhiteSpace(videoIdsString))
+                throw new ArgumentNullException(nameof(videoIdsString));
+
+            // Parse the string into ids.
+            IReadOnlyCollection<string> videoIds = videoIdsString.Split(',');
 
             // Create the client.
             ITwitchClient client = CreateTwitchClient();
 
             // Make the call.
-            Video response = await client
-                .GetVideo(videoId, CancellationToken.None)
+            var response = await client
+                .GetVideosByIdAsync(videoIds, CancellationToken.None)
                 .ConfigureAwait(false);
 
-            // Assert.
-            Assert.NotNull(response.Url);
+            // Assert the length.
+            Assert.Equal(videoIds.Count, response.Response.Data.Count);
         }
 
         #endregion

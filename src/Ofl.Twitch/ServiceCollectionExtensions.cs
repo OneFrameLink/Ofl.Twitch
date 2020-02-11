@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Ofl.Twitch.V5;
 
 namespace Ofl.Twitch
 {

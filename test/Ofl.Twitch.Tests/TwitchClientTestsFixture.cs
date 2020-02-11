@@ -1,9 +1,8 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Ofl.Twitch.V5;
 
-namespace Ofl.Twitch.Tests.V5
+namespace Ofl.Twitch.Tests
 {
     public class TwitchClientTestsFixture : IDisposable
     {
