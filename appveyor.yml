@@ -102,8 +102,9 @@ deploy:
   api_key:
     secure: WuVzz7rQXKtG8gCcxuBARSPLoFyAed/9ymDhqOPwCSbigHBDRCHPmVv7LKHf8Q5B
   skip_symbols: false
-  artifact: **\*.nupkg
-  artifact: **\*.snupkg
+  artifact:
+    - **\*.nupkg
+    - **\*.snupkg
   
 #--------------------------------------------------
 # Notifications
