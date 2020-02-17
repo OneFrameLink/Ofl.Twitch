@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http.Extensions;
 using Ofl.Net.Http.ApiClient.Json;
+using Ofl.Text.Json;
 using Ofl.Threading.Tasks;
 
 namespace Ofl.Twitch
@@ -25,7 +26,7 @@ namespace Ofl.Twitch
 
         protected override JsonSerializerOptions CreateJsonSerializerOptions() =>
             new JsonSerializerOptions {
-                PropertyNamingPolicy = new SnakeCaseJsonNamingPolicy()
+                PropertyNamingPolicy = new SnakeCaseJsonNamingPolicy(true)
             };
 
         protected override ValueTask<string> FormatUrlAsync(string url, CancellationToken cancellationToken)
