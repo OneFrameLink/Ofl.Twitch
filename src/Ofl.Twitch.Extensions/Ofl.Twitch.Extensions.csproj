@@ -1,7 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <Description>Extensions for abstractions used by the Ofl.Twitch project.</Description>
+    <AssemblyName>Ofl.Twitch.Extensions</AssemblyName>
+    <PackageId>Ofl.Twitch.Extensions</PackageId>
+    <PackageProjectUrl>https://github.com/OneFrameLink/Ofl.Twitch.Extensions</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/OneFrameLink/Ofl.Twitch.Extensions.git</RepositoryUrl>
+    <RootNamespace>Ofl.Twitch</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
