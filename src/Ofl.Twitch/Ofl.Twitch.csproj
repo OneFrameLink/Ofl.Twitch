@@ -7,7 +7,7 @@
     <PackageId>Ofl.Twitch</PackageId>
     <PackageProjectUrl>https://github.com/OneFrameLink/Ofl.Twitch</PackageProjectUrl>
     <RepositoryUrl>https://github.com/OneFrameLink/Ofl.Twitch.git</RepositoryUrl>
-  	<PackageTags>twitch twitch-api twitch-api-v5</PackageTags>
+    <PackageTags>twitch twitch-api</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
