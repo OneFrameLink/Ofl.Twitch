@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Ofl.Twitch.Extensions
+namespace Ofl.Twitch
 {
     public static class TwitchClientExtensions
     {
