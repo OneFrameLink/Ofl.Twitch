@@ -43,6 +43,22 @@ namespace Ofl.Twitch
             }
         }
 
+        public string ClientSecret
+        {
+            get
+            {
+                // If the client is null, throw.
+                string? clientSecret = _clientIdConfigurationOptions.Value.ClientSecret;
+
+                // Validate.
+                if (string.IsNullOrWhiteSpace(clientSecret))
+                    throw new InvalidOperationException($"The {nameof(_clientIdConfigurationOptions.Value.ClientSecret)} configuration value was empty.");
+
+                // Return the client ID.
+                return clientSecret;
+            }
+        }
+
         #endregion
     }
 }
