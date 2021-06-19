@@ -102,7 +102,7 @@ nuget:
 deploy:
   provider: NuGet
   api_key:
-    secure: WuVzz7rQXKtG8gCcxuBARSPLoFyAed/9ymDhqOPwCSbigHBDRCHPmVv7LKHf8Q5B
+    secure: w2Yb+r1mvXANZG6hL78WBBJ68oE5uKy8X/YVw+iWH4/ABukckQwX4gSfsssQ0q62
   skip_symbols: false
   
 #--------------------------------------------------
