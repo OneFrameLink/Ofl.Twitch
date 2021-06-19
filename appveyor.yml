@@ -20,7 +20,7 @@ environment:
   TWITCH__CLIENTID:
     secure: hkOEcwOrdH6hrWAZRJd/FbIHZ8rm2R57og1Lk2be9JY=
   TWITCH__CLIENTSECRET:
-    secure: Mi0TGxuY4CMdKEEp2LiFA31W6V8TXjGGWXi7pbut0hk=
+    secure: qTWY19t8MTMzBT9g1Dm2A666XLstiDvUKN9Q2CDPUeQ=
     
 #--------------------------------------------------
 # Branch whitelist

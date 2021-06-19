@@ -36,6 +36,7 @@ namespace Ofl.Twitch.Tests
         [Theory]
         [InlineData("547460150")]
         [InlineData("547460150,546100800")]
+        [InlineData("1057534640")]
         public async Task Test_GetVideosById_Async(string videoIdsString)
         {
             // Validate parameters.
